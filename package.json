@@ -1,0 +1,17 @@
+{
+  "name": "invoice-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "create": "plop && node convert-to-pdf.js"
+  },
+  "devDependencies": {
+    "plop": "^2.6.0"
+  },
+  "dependencies": {
+    "dotenv-safe": "^8.2.0",
+    "html-pdf": "^2.2.0",
+    "moment": "^2.24.0"
+  }
+}

@@ -1,0 +1,26 @@
+const
+  fs              = require('fs'),
+  pdf             = require('html-pdf'),
+  invoiceHtmlFile = fs.readFileSync('invoices/Invoice #{{invoiceNumber}}.html', 'utf8'),
+  stylesFile      = 'file:///{{workingDirPath}}/src/styles.min.css',
+  invoicesDir     = '{{workingDirPath}}/invoices',
+  options         = {
+    format: 'A2',
+    base:   stylesFile
+  };
+
+// Create invoices directory
+if (!fs.existsSync(invoicesDir)){
+  fs.mkdirSync(invoicesDir);
+}
+
+pdf.create(invoiceHtmlFile, options).toFile(`${invoicesDir}/Invoice #{{invoiceNumber}}.pdf`, (err, res) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log(res);
+});
+
+// Cleanups
+fs.unlinkSync('invoices/Invoice #{{invoiceNumber}}.html');
+fs.unlinkSync('convert-to-pdf.js');
