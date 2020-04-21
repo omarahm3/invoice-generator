@@ -45,7 +45,7 @@ module.exports = function (plop) {
         name:     'invoiceNumber',
         message:  'Enter invoice number.',
         filter: function(value) {
-          return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          return value.toString();
         }
       },
       {
