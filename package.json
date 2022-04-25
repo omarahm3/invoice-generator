@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "create": "plop && node convert-to-pdf.js"
+    "create": "plop && node convert-to-pdf.js",
+    "generate": "plop",
+    "pdf": "node convert-to-pdf"
   },
   "devDependencies": {
     "plop": "^2.6.0"
